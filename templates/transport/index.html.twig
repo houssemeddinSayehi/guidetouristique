@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transport index{% endblock %}
+
+{% block body %}
+    <h1>Transport index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Nombre des places</th>
+                <th>prix_de_location</th>
+                <th>images</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transport in transports %}
+            <tr>
+                <td>{{ transport.id }}</td>
+                <td>{{ transport.type }}</td>
+                <td>{{ transport.numero }}</td>
+                <td>{{ transport.PrixDeLocation }}</td>
+                <td><img src="{{ asset(transport.images) }} " style="width: 100px;"/></td>
+                <td>
+                <td>
+                    <a href="{{ path('transport_show', {'id': transport.id}) }}">show</a>
+                    <a href="{{ path('transport_edit', {'id': transport.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('transport_new') }}">Create new</a>
+    <a href="{{ path('Transport_imprime') }}">Imprimer</a>
+{% endblock %}

@@ -1,0 +1,72 @@
+
+
+{% extends 'front.html.twig' %}
+
+{% block pagecontent %}
+
+
+    <!-- food section -->
+
+    <section class="food_section layout_padding-bottom">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Our Guide
+                </h2>
+            </div>
+            <ul class="filters_menu">
+
+                <li data-filter=".burger" class="">Restaurations</li>
+                <li data-filter=".burger" class="">Hotels</li>
+                <li data-filter=".pizza" class="">Zones Touristiques</li>
+                <li data-filter=".pasta" class="">Zones Archéologiques</li>
+                <li class="active" data-filter="*">Transport</li>
+            </ul>
+
+            <div class="filters-content">
+
+                <div class="row grid">
+
+                    {% for transport in transports %}
+                        <div class="col-sm-6 col-lg-4 all piza ">
+                            <div class="box">
+                                <div>
+                                    <div class="img-box">
+                                        <img src="{{ asset(transport.images) }} " alt="">
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Type :  {{ transport.type }}
+                                        </h5>
+
+                                        <p> Nombre des places : {{ transport.numero }} </p>
+
+                                        <p> Prix de location en DT :   {{ transport.PrixDeLocation }}</p>
+
+
+
+                                        <div class="options">
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+
+                <div class="btn-box">
+                    <a href="">
+                        View More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end food section -->
+{% endblock %}

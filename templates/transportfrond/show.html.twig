@@ -1,0 +1,32 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Transport{% endblock %}
+    <h1>Transport</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ transport.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ transport.type }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ transport.numero }}</td>
+            </tr>
+            <tr>
+                <th>Nombredesjours</th>
+                <td>{{ transport.nombredesjours }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('transportfrond_index') }}">back to list</a>
+
+    <a href="{{ path('transportfrond_edit', {'id': transport.id}) }}">edit</a>
+
+    {{ include('transportfrond/_delete_form.html.twig') }}
+{% endblock %}
